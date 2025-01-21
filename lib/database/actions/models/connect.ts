@@ -7,7 +7,7 @@ interface MongooseConnection {
     promise: Promise<Mongoose> | null;
 }
 
-let cached: MongooseConnection = (globalThis as any).mongoose || { conn: null, promise: null };
+const cached: MongooseConnection = (globalThis as any).mongoose || { conn: null, promise: null };
 
 const connectToDatabase = async (): Promise<Mongoose> => {
     // If already connected, return cached connection
